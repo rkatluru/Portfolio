@@ -1,30 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap');
-
-body {
-  font-family: 'Roboto', sans-serif;
+:root {
+  --primary-color: #000000;
+  --secondary-color: #fff;
 }
 
-section {
-  background-color: white;
-  border: solid black 1px;
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+
+html {
+  transition: all 0.5s ease-in;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
 
 .hero {
-  background-color: #002a36;
   height: 100vh;
-  color: white;
   font-size: 40px;
 }
 
 footer {
-  height: 500px;
-  background-color: black;
+  text-align: center;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: #014052;
 }
 
 ul {
@@ -36,14 +44,12 @@ ul {
 }
 
 li {
-  width: 200px;
   text-decoration: none;
 }
 
 h1 {
   font-size: 90px;
   margin: 0;
-  font-weight: 400;
 }
 
 h2 {
@@ -56,6 +62,19 @@ p {
   font-weight: 300;
 }
 
+.subtext {
+  font-size: 15px;
+  font-weight: 300;
+}
+.toggle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 25px;
+}
 .hero-area {
   display: flex;
   height: 100%;
@@ -70,9 +89,9 @@ p {
 
 .button {
   width: 200px;
-  height: 45px;
-  background-color: #014052;
-  border-radius: 40px;
+  height: 55px;
+  border-radius: 30px;
+  background-color: #049974;
   text-align: center;
   font-size: 30px;
   font-weight: 300;
@@ -81,29 +100,42 @@ p {
 }
 
 .button:hover {
-  background-color: white;
-  color: #014052;
+  background-color: #00e3ab;
 }
 
-.social {
+.button:active {
+  background-color: #a9a9a9;
+  color: #808080;
+}
+
+.socials {
   padding-bottom: 200px;
 }
 
-.social-icon {
+.logo {
+  height: 100px;
+}
+.social {
   margin: 20px;
 }
 
 .sub-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 80px;
 }
 
-.sub-section-projects {
+.sub-section-alternative {
   display: flex;
   flex-direction: column;
   text-align: center;
   padding: 80px;
+}
+
+.headshot {
+  width: 300px;
+  border-radius: 150px;
+  margin-left: 80px;
 }
 
 .headshot-container {
@@ -111,18 +143,146 @@ p {
   align-items: center;
 }
 
-.headshot {
-  width: 400px;
-  border-radius: 50px;
-}
-
 .project-card {
   width: 300px;
   height: 500px;
-  border: 1px solid black;
+  box-shadow: 5px 5px 20px rgb(197, 195, 195);
+  margin: 10px;
 }
 
 .project-container {
   display: flex;
   justify-content: space-around;
+}
+
+@media only screen and (max-width: 1000px) {
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.project-image {
+  margin-top: 25px;
+  width: 250px;
+  border-radius: 125px;
+}
+
+hr {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.project-link {
+  text-decoration: none;
+  color: #ef744b;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger:focus {
+  outline: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .hamburger {
+    display: block;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    margin: 20px;
+    align-self: flex-end;
+  }
+
+  ul {
+    display: none;
+    background-color: #2b2c38;
+    margin: 0ppx;
+  }
+
+  ul.show {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #2b2c38;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
+.box {
+  background-color: white;
+  color: #152641;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.4);*/
+  transform: translateX(400%);
+  transition: transform 1s ease;
+}
+.box img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+  width: 100px;
+}
+
+h2 {
+  margin-left: 30px;
+}
+.box:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.box.show {
+  transform: translateX(0);
+}
+
+#parent > div {
+  box-shadow: 0 1px 2px #334;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#parent:hover > div {
+  opacity: 0.6;
+}
+
+#parent > div:hover {
+  opacity: 1;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #049974;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
 }
